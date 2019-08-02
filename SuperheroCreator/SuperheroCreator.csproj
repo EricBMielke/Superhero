@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201908021347363_InitialMigration.Designer.cs">
       <DependentUpon>201908021347363_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908021546221_SuperHero.cs" />
+    <Compile Include="Migrations\201908021546221_SuperHero.Designer.cs">
+      <DependentUpon>201908021546221_SuperHero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -245,7 +249,8 @@
     <Content Include="Views\SuperHero\Create.cshtml" />
     <Content Include="Views\SuperHero\Edit.cshtml" />
     <Content Include="Views\SuperHero\Delete.cshtml" />
-    <Content Include="Views\SuperHero\Read.cshtml" />
+    <Content Include="Views\SuperHero\Details.cshtml" />
+    <Content Include="Views\SuperHero\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -266,6 +271,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908021347363_InitialMigration.resx">
       <DependentUpon>201908021347363_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908021546221_SuperHero.resx">
+      <DependentUpon>201908021546221_SuperHero.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

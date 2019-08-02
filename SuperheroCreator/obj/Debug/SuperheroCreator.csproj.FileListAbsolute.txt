@@ -105,3 +105,4 @@ C:\Users\Eric\source\repos\SuperheroCreator\SuperheroCreator\obj\Debug\Superhero
 C:\Users\Eric\source\repos\SuperheroCreator\SuperheroCreator\obj\Debug\SuperheroCreator.pdb
 C:\Users\Eric\source\repos\SuperheroCreator\SuperheroCreator\obj\Debug\SuperheroCreator.Migrations.InitialMigration.resources
 C:\Users\Eric\source\repos\SuperheroCreator\SuperheroCreator\obj\Debug\SuperheroCreator.csproj.GenerateResource.cache
+C:\Users\Eric\source\repos\SuperheroCreator\SuperheroCreator\obj\Debug\SuperheroCreator.Migrations.SuperHero.resources

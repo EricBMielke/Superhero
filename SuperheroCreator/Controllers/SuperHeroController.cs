@@ -17,7 +17,8 @@ namespace SuperheroCreator.Controllers
         // GET: SuperHero
         public ActionResult Index()
         {
-            return View();
+            var superheroList = db.SingleSuperhero.AsEnumerable();
+            return View(superheroList);
         }
 
         // GET: SuperHero/Details/5
@@ -49,19 +50,39 @@ namespace SuperheroCreator.Controllers
         }
 
         // GET: SuperHero/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
             return View();
         }
 
         // POST: SuperHero/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Superhero superHero, string updateField, string newValue)
         {
             try
             {
-                // TODO: Add update logic here
-
+                switch (updateField)
+                {
+                    case ("Name"):
+                        superHero.Name = newValue;
+                        break;
+                    case ("AlterEgo"):
+                        superHero.AlterEgo = newValue;
+                        break;
+                    case ("PrimaryAbility"):
+                        superHero.PrimaryAbility = newValue;
+                        break;
+                    case ("SecondaryAbility"):
+                        superHero.SecondaryAbility = newValue;
+                        break;
+                    case ("Catchphrase"):
+                        superHero.Catchphrase = newValue;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid field type to be updated");
+                        break;
+                }
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -71,19 +92,19 @@ namespace SuperheroCreator.Controllers
         }
 
         // GET: SuperHero/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete()
         {
             return View();
         }
 
         // POST: SuperHero/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Superhero superHero)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                db.SingleSuperhero.Remove(superHero);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
