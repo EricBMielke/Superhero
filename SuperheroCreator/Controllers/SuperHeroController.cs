@@ -88,12 +88,14 @@ namespace SuperheroCreator.Controllers
 
         // POST: SuperHero/Delete/5
         [HttpPost]
-        public ActionResult Delete(Superhero superHero)
+        public ActionResult Delete(Superhero superHero, int id)
         {
 
             try
             {
-                db.SingleSuperhero.Remove(superHero);
+                Superhero superHeroDelete = db.SingleSuperhero.Where(s => s.Id == id).FirstOrDefault();
+                superHeroDelete.Id = superHero.Id;
+                db.SingleSuperhero.Remove(superHeroDelete);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
