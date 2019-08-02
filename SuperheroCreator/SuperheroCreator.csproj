@@ -242,10 +242,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\SuperHero\Create.cshtml" />
+    <Content Include="Views\SuperHero\Edit.cshtml" />
+    <Content Include="Views\SuperHero\Delete.cshtml" />
+    <Content Include="Views\SuperHero\Read.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\SuperHero\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
