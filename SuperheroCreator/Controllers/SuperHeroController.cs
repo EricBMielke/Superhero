@@ -51,43 +51,30 @@ namespace SuperheroCreator.Controllers
         }
 
         // GET: SuperHero/Edit/5
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
-            return View();
+            Superhero superHero = db.SingleSuperhero.Where(s => s.Id == id).FirstOrDefault();
+            return View(superHero);
         }
 
         // POST: SuperHero/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Superhero superHero, string updateField, string newValue)
+        public ActionResult Edit(int id, Superhero superHero)
         {
             try
             {
-                switch (updateField)
-                {
-                    case ("Name"):
-                        superHero.Name = newValue;
-                        break;
-                    case ("AlterEgo"):
-                        superHero.AlterEgo = newValue;
-                        break;
-                    case ("PrimaryAbility"):
-                        superHero.PrimaryAbility = newValue;
-                        break;
-                    case ("SecondaryAbility"):
-                        superHero.SecondaryAbility = newValue;
-                        break;
-                    case ("Catchphrase"):
-                        superHero.Catchphrase = newValue;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid field type to be updated");
-                        break;
-                }
+                Superhero superHeroEdit = db.SingleSuperhero.Where(s => s.Id == id).FirstOrDefault();
+                superHeroEdit.Id = superHero.Id;
+                superHeroEdit.Name = superHero.Name;
+                superHeroEdit.AlterEgo = superHero.AlterEgo;
+                superHeroEdit.PrimaryAbility = superHero.PrimaryAbility;
+                superHeroEdit.SecondaryAbility = superHero.SecondaryAbility;
+                superHeroEdit.Catchphrase = superHero.Catchphrase;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
-            {
+            { 
                 return View();
             }
         }
@@ -95,13 +82,13 @@ namespace SuperheroCreator.Controllers
         // GET: SuperHero/Delete/5
         public ActionResult Delete(int id)
         {
-            var superHero = db.SingleSuperhero.Where(s => s.Id == id);
-            return View();
+            Superhero superHero = db.SingleSuperhero.Where(s => s.Id == id).FirstOrDefault();
+            return View(superHero);
         }
 
         // POST: SuperHero/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Superhero superHero)
+        public ActionResult Delete(Superhero superHero)
         {
 
             try
