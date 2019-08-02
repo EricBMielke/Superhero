@@ -24,7 +24,8 @@ namespace SuperheroCreator.Controllers
         // GET: SuperHero/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Superhero superHero = db.SingleSuperhero.Where(s => s.Id == id).FirstOrDefault();
+            return View(superHero);
         }
 
         // GET: SuperHero/Create
@@ -57,7 +58,7 @@ namespace SuperheroCreator.Controllers
 
         // POST: SuperHero/Edit/5
         [HttpPost]
-        public ActionResult Edit(Superhero superHero, string updateField, string newValue)
+        public ActionResult Edit(int id, Superhero superHero, string updateField, string newValue)
         {
             try
             {
@@ -92,15 +93,17 @@ namespace SuperheroCreator.Controllers
         }
 
         // GET: SuperHero/Delete/5
-        public ActionResult Delete()
+        public ActionResult Delete(int id)
         {
+            var superHero = db.SingleSuperhero.Where(s => s.Id == id);
             return View();
         }
 
         // POST: SuperHero/Delete/5
         [HttpPost]
-        public ActionResult Delete(Superhero superHero)
+        public ActionResult Delete(int id, Superhero superHero)
         {
+
             try
             {
                 db.SingleSuperhero.Remove(superHero);
